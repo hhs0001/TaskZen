@@ -1,23 +1,10 @@
-import configparser
-import os
 from flask import Flask
 from flask_cors import CORS
-from api.db import connect_to_db
 from api.tasks import tasks_blueprint
+from settings import tasks_collection
 
 app = Flask(__name__)
 CORS(app)
-
-config = configparser.ConfigParser()
-config.read(os.path.abspath(os.path.join(".ini")))
-
-app.config['MONGO_URI'] = config['PROD']['DB_URI']
-
-print(app.config['MONGO_URI'])
-
-# Conexão com o MongoDB Atlas
-MONGO_URI = app.config['MONGO_URI']
-connect_to_db(MONGO_URI)
 
 # Registra o blueprint do módulo tasks
 app.register_blueprint(tasks_blueprint, url_prefix='/api')

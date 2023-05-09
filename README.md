@@ -39,7 +39,7 @@ pip install -r requirements.txt
 DB_URI = seu_uri_de_conexão_do_mongodb_atlas
 ```
 
-5. Instale as dependências do frontend (assumindo que você tenha `package.json` e `package-lock.json` na pasta do frontend):
+5. Instale as dependências do frontend:
 
 ```bash
 cd frontend
@@ -55,11 +55,11 @@ cd taskzen
 python wsgi.py
 ```
 
-2. Inicie o servidor frontend (assumindo que você tenha um script `serve` no seu `package.json`):
+2. Inicie o servidor frontend:
 
 ```bash
 cd frontend
-npm run serve
+npm run dev
 ```
 
 3. Abra seu navegador e acesse [http://localhost:8080](http://localhost:8080) (ou a porta especificada pelo seu servidor frontend) para ver a aplicação em execução.

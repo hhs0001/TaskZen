@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from bson.objectid import ObjectId
-from .db import tasks_collection
+from settings import tasks_collection
 
 tasks_blueprint = Blueprint('tasks', __name__)
 
@@ -8,7 +8,8 @@ tasks_blueprint = Blueprint('tasks', __name__)
 @tasks_blueprint.route('/tasks', methods=['POST'])
 def create_task():
     task = request.get_json()
-    tasks_collection.insert_one(task)
+    result = tasks_collection.insert_one(task)
+    task['_id'] = str(result.inserted_id)
     return jsonify(task), 201
 
 # Obter todas as tarefas (R)

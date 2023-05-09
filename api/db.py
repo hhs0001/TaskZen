@@ -1,10 +1,8 @@
+# api/db.py
 from pymongo import MongoClient
 
-tasks_collection = None
-
-def connect_to_db(uri):
-    global tasks_collection
-    client = MongoClient(uri)
+def get_tasks_collection(mongo_uri):
+    client = MongoClient(mongo_uri)
     db = client['taskzen']
     tasks_collection = db['tasks']
-
+    return tasks_collection
