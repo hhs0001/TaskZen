@@ -23,8 +23,8 @@ export async function createTask(task) {
   });
 }
 
-export async function updateTask(task) {
-  return fetchData(`${API_URL}/tasks/${task._id}`, {
+export async function updateTask(taskId, task) {
+  return fetchData(`${API_URL}/tasks/${taskId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

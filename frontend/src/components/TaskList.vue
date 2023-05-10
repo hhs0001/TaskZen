@@ -9,10 +9,20 @@
       <li v-for="task in tasks" :key="task._id">
         {{ task.description }}
         <button @click="deleteTask(task._id)">Excluir</button>
+        <button @click="showUpdateTaskForm(task)">Atualizar</button>
       </li>
     </ul>
+    <div v-if="taskBeingEdited">
+      <h3>Editar Tarefa</h3>
+      <form @submit.prevent="updateTaskAndHideForm">
+        <input type="text" v-model="taskBeingEdited.description" required />
+        <button type="submit">Salvar</button>
+        <button type="button" @click="taskBeingEdited = null">Cancelar</button>
+      </form>
+    </div>
   </div>
 </template>
+
 
 <script>
 import { getTasks, createTask, updateTask, deleteTask } from "../api";
@@ -22,6 +32,7 @@ export default {
     return {
       tasks: [],
       newTask: "",
+      taskBeingEdited: null,
     };
   },
   async created() {
@@ -41,6 +52,13 @@ export default {
       await deleteTask(taskId);
       this.tasks = this.tasks.filter((task) => task._id !== taskId);
     },
+    showUpdateTaskForm(task) {
+      this.taskBeingEdited = task;
+  },
+    async updateTaskAndHideForm() {
+      await updateTask(this.taskBeingEdited._id, this.taskBeingEdited);
+      this.taskBeingEdited = null;
+  },
   },
 };
 </script>

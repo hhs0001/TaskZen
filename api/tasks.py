@@ -25,9 +25,10 @@ def get_tasks():
 @tasks_blueprint.route('/tasks/<task_id>', methods=['PUT'])
 def update_task(task_id):
     updated_task = request.get_json()
+    updated_task.pop('_id', None)  # Remove o campo '_id' se estiver presente
     tasks_collection.update_one({'_id': ObjectId(task_id)}, {'$set': updated_task})
-    updated_task['_id'] = task_id
     return jsonify(updated_task), 200
+
 
 # Deletar uma tarefa (D)
 @tasks_blueprint.route('/tasks/<task_id>', methods=['DELETE'])
