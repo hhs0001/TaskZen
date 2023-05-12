@@ -13,13 +13,14 @@ def create_task():
     return jsonify(task), 201
 
 # Obter todas as tarefas (R)
-@tasks_blueprint.route('/tasks', methods=['GET'])
-def get_tasks():
+@tasks_blueprint.route('/tasks/<user_id>', methods=['GET'])
+def get_tasks(user_id):
     tasks = []
-    for task in tasks_collection.find():
+    for task in tasks_collection.find({"user_id": user_id}):  # filtrando as tarefas baseado no usuário autenticado
         task['_id'] = str(task['_id'])
         tasks.append(task)
     return jsonify(tasks), 200
+
 
 # Atualizar uma tarefa (U)
 @tasks_blueprint.route('/tasks/<task_id>', methods=['PUT'])

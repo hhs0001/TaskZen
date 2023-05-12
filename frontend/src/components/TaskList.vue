@@ -35,10 +35,10 @@ export default {
       taskBeingEdited: null,
     };
   },
-  async created() {
-    this.tasks = await getTasks();
-  },
   methods: {
+    async loadTasks() {
+      this.tasks = await getTasks();
+    },
     async addTask() {
       const task = {
         description: this.newTask,
