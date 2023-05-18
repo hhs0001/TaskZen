@@ -13,7 +13,7 @@ TaskZen é uma aplicação web simples de lista de tarefas (TODO) desenvolvida c
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu_usuario/taskzen.git
+git clone https://github.com/hhs0001/taskzen.git
 cd taskzen
 ```
 
@@ -58,7 +58,7 @@ python wsgi.py
 2. Inicie o servidor frontend:
 
 ```bash
-cd frontend
+cd ./taskzen/frontend
 npm run dev
 ```
 
