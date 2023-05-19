@@ -15,7 +15,6 @@ export async function getTasks(userId) {
 
 export async function createTask(task, userId) {
   task.user_id = userId;  // Adicione o user_id à tarefa
-  console.log(task);
   return fetchData(`${API_URL}/tasks`, {
     method: "POST",
     headers: {

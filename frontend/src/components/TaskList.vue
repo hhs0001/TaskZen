@@ -33,10 +33,10 @@ export default {
       tasks: [],
       newTask: "",
       taskBeingEdited: null,
+      userId: null,
     };
   },
   methods: {
-    userId: null,
     async loadTasks(userId) {
       this.userId = userId;
       this.tasks = await getTasks(userId);
