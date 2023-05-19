@@ -28,8 +28,8 @@
             username: this.username,
             password: this.password,
           };
-          await loginUser(user);
-          this.$emit('login-success');
+          const userId = await loginUser(user); // Armazenar o retorno da chamada
+          this.$emit('login-success', userId);  // Emitir o userId no evento
         } catch (error) {
           console.error(error);
           alert('Login falhou');

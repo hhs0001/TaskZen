@@ -9,7 +9,7 @@
     <main>
       <login-form v-if="!loggedIn && !showRegister" @login-success="loginSuccess" @go-to-register="showRegister = true" />
       <register-form v-if="!loggedIn && showRegister" @register-success="loginSuccess" @go-to-login="showRegister = false" />
-      <task-list v-if="loggedIn" />
+      <task-list ref="taskList" v-if="loggedIn" />
     </main>
   </div>
 </template>
@@ -32,10 +32,12 @@ export default {
     };
   },
   methods: {
-    loginSuccess() {
-      this.loggedIn = true;
-      this.$refs.taskList.loadTasks();
-    },
+    loginSuccess(userId) {
+    this.loggedIn = true;
+    this.$nextTick(() => {
+      this.$refs.taskList.loadTasks(userId);
+    });
+  },
   },
 };
 </script>

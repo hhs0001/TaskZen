@@ -36,15 +36,17 @@ export default {
     };
   },
   methods: {
-    async loadTasks() {
-      this.tasks = await getTasks();
+    userId: null,
+    async loadTasks(userId) {
+      this.userId = userId;
+      this.tasks = await getTasks(userId);
     },
     async addTask() {
       const task = {
         description: this.newTask,
         done: false,
       };
-      const createdTask = await createTask(task);
+      const createdTask = await createTask(task, this.userId);
       this.tasks.push(createdTask);
       this.newTask = "";
     },

@@ -27,8 +27,8 @@
             username: this.username,
             password: this.password,
           };
-          await registerUser(user);
-          this.$emit('register-success');
+          const userId = await registerUser(user); // Armazenar o retorno da chamada
+          this.$emit('register-success', userId);  // Emitir o userId no evento
         } catch (error) {
           console.error(error);
           alert('Registro falhou');
