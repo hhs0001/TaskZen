@@ -39,15 +39,49 @@
   </script>
   
   <style scoped>
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
   form {
     display: flex;
     flex-direction: column;
     width: 300px;
-    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
   }
   
-  input, button {
+  input {
+    padding: 0.5rem;
     margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #e1e1e1;
+  }
+  
+  button {
+    padding: 0.5rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #0051bb;
   }
   </style>
+  
   
