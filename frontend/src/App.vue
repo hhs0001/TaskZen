@@ -53,7 +53,10 @@ export default {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #fafafa;
+  background-color: #ffffff;
+  opacity: 1;
+  height: 100vh;
+  width: 100vw;
 }
 
 .task-container {
@@ -91,7 +94,7 @@ h1 {
 main {
   display: flex;
   flex-direction: column;
-  align-items: center; /* modificado de center para flex-start */
+  align-items: certer; /* modificado de center para flex-start */
   width: 100%;
   padding: 1rem;
   margin-top: 2rem;

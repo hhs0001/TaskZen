@@ -2,6 +2,19 @@
 
 TaskZen é uma aplicação web simples de lista de tarefas (TODO) desenvolvida como projeto da faculdade. A aplicação consiste em um frontend Vue.js e um backend Flask que se comunicam via Web Services (WS). Os dados são armazenados em um banco de dados NoSQL MongoDB.
 
+### A aplicação pode:
+- Fazer login e registro de usuários através de login e senha
+- Guardar a lista de tarefas separadas por usuário
+- Atualizar, incluir e excluir tarefas pela demanda do usuário 
+
+## Prints
+
+![Tela de Login](https://i.imgur.com/c94eoPk.png)
+
+![Tela de Registro](https://i.imgur.com/DfafgXj.png)
+
+![Tela Inicial](https://i.imgur.com/c0B4Qsk.png)
+
 ## Requisitos
 
 - Python 3.7+
@@ -62,7 +75,7 @@ cd ./taskzen/frontend
 npm run dev
 ```
 
-3. Abra seu navegador e acesse [http://localhost:8080](http://localhost:8080) (ou a porta especificada pelo seu servidor frontend) para ver a aplicação em execução.
+3. Abra seu navegador e acesse [http://localhost:5173](http://localhost:5173) (ou a porta especificada pelo seu servidor frontend) para ver a aplicação em execução.
 
 ## Contribuindo
 
